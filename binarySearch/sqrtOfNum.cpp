@@ -20,6 +20,5 @@ int main(){
             maxi=max(maxi,mid);
         }
     }
-    cout<<maxi;
-    // cout<<"The sqrt of "+n+" is: "+maxi;
+    cout<<"The sqrt of "<<n<<" is: "<<maxi;
 }
