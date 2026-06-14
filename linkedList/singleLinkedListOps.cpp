@@ -37,6 +37,7 @@ void lengthOfLL(Node *head){
 }
 void printLL(Node *head){
     Node *temp = head;
+    cout<<temp<<endl;
     while(temp){
         cout<<temp->data<<" ";
         temp = temp->next;
@@ -63,8 +64,8 @@ int main(){
     vector<int> arr={2,4,2,6,1,9,6};
     Node *head = convertArrToLL(arr);
     printLL(head);
-    lengthOfLL(head);
-    isPresent(head, 8);
+    // lengthOfLL(head);
+    // isPresent(head, 8);
     
     // cout<<head<<endl;
     // cout<<head->next<<endl;
