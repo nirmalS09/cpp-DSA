@@ -47,15 +47,63 @@ Node *deleteTail(Node *head){
     temp->next=nullptr;
     return head;
 }
+Node *deleteKthElement(Node *head, int k){
+    if(head==NULL) return head;
+    Node *temp = head;
+    if(k==1){
+        head = head->next;
+        delete temp;
+        return head;
+    }
+
+    int count = 0;
+    Node *prev = NULL;
+    while(temp){
+        count++;
+        if(count == k){
+            prev->next = prev->next->next;
+            delete temp;
+            break;
+        }
+        prev = temp;
+        temp=temp->next;
+        
+    }
+    return head;
+
+}
+Node *deleteElement(Node *head, int ele){
+    if(head == NULL) return head;
+    Node *temp = head;
+    if(head->data == ele){
+        head = head->next;
+        delete temp;
+        return head;
+    }
+    Node *prev = NULL;
+    while(temp){
+        if(temp->data == ele){
+            prev->next = prev->next->next;
+            delete temp;
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return head;
+}
 
 int main(){
     vector<int> arr = {3,6,2,4,8,6,9};
     Node *head = convertToLL(arr);
     printLL(head);
-    head = deleteHead(head);
-    cout<<head->data<<endl;
+    // head = deleteHead(head);
     // printLL(head);
-    head = deleteTail(head);
-    cout<<head->data<<endl;
+    // head = deleteTail(head);
     // printLL(head);
+    // head = deleteKthElement(head,7);
+    // printLL(head);
+    // cout<<head->data<<endl;
+    head = deleteElement(head,6);
+    printLL(head);
 }
